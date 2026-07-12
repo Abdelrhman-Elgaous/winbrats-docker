@@ -1,0 +1,43 @@
+name: Build and Push WIN_BRATS to Synapse
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL
+          df -h /
+
+      - name: Download weights from Google Drive
+        run: |
+          pip install gdown
+          gdown "1dE9eq7seqPOsxsOTsr1BZKSBgB5HgThp" -O additional_files.tar
+          tar -xf additional_files.tar
+          rm additional_files.tar
+          echo "=== folds check ==="
+          for f in 1 2 4; do
+            ls -lh weights/Dataset137_BraTS2026MET/nnUNetTrainer__nnUNetResEncUNetLPlans__3d_fullres/fold_$f/checkpoint_best.pth
+          done
+
+      - name: Log in to Synapse Docker registry
+        run: |
+          echo "${{ secrets.SYNAPSE_TOKEN }}" | docker login docker.synapse.org \
+            --username "${{ secrets.SYNAPSE_USERNAME }}" --password-stdin
+
+      - name: Build and push image
+        run: |
+          docker build -t docker.synapse.org/syn74788961/winbrats:v3 .
+          docker push docker.synapse.org/syn74788961/winbrats:v3
+
+      - name: Verify weights inside image
+        run: |
+          docker run --rm --entrypoint find \
+            docker.synapse.org/syn74788961/winbrats:v3 \
+            /opt/weights -name checkpoint_best.pth
