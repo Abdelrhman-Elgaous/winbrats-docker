@@ -1,4 +1,4 @@
-results/
+# results/
 
 Per-case scores behind every reported comparison. These are the reproducible layer: model checkpoints and imaging data are not redistributed, so the tables in the paper are recomputed from these files rather than from the models.
 
