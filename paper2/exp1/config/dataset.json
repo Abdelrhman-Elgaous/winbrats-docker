@@ -1,0 +1,38 @@
+{
+  "channel_names": {
+    "0": "T1N",
+    "1": "T1C",
+    "2": "T2W",
+    "3": "T2F"
+  },
+  "labels": {
+    "background": 0,
+    "WT": [
+      1,
+      2,
+      3
+    ],
+    "TC": [
+      1,
+      3
+    ],
+    "ET": [
+      3
+    ],
+    "RC": [
+      4
+    ]
+  },
+  "numTraining": 1296,
+  "file_ending": ".nii.gz",
+  "name": "Dataset137_BraTS2026MET",
+  "description": "BraTS 2026 Brain Metastases \u2014 region-based 4-class segmentation. Regions: WT=[1,2,3], TC=[1,3], ET=[3], RC=[4]. Migrated from multiclass on 2026-05-12 after class collapse.",
+  "reference": "https://www.synapse.org/brats2026",
+  "license": "CC BY-NC-SA 4.0",
+  "regions_class_order": [
+    2,
+    1,
+    3,
+    4
+  ]
+}

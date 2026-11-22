@@ -1,17 +1,33 @@
 # WIN_BRATS — BraTS-METS 2026
 
-Inference container and analysis code for:
+Code and per-case results for two papers by team `WIN_BRATS`
+(MICCAI 2026 Challenge BraTS-METS, Task 1), Faculty of Engineering,
+Mansoura University. A. El-Gaghous, M. S. F. Saraya, S. M. Ayyad.
 
-> **Runtime-Aware Ensemble Optimization for Brain Metastasis Segmentation under
-> Strict Deployment Constraints**
-> A. El-Gaghous, M. S. F. Saraya, S. M. Ayyad
-> Faculty of Engineering, Mansoura University
+| | Paper | Where |
+|---|---|---|
+| **Paper 1** | *Runtime-Aware Ensemble Optimization for Brain Metastasis Segmentation under Strict Deployment Constraints* — MICCAI 2026 Workshops and Challenges | this page, and the files at the top level |
+| **Paper 2** | *Beyond Error Headroom: The Limits of Post-Processing in Lesion-Level Brain Metastasis Segmentation* — manuscript under review | [`paper2/`](paper2/) and its [README](paper2/README.md) |
 
-Team `WIN_BRATS` · MICCAI 2026 Challenge BraTS-METS, Task 1.
+Paper 2 analyses the segmentation system of Paper 1 on the same 567-case
+cohort. Each paper's files are separate: no code or table at the top level was changed
+when Paper 2 was added, so every path and command below still reproduces
+Paper 1 as published. The two papers' relationship is set out in
+[`paper2/README.md`](paper2/README.md#how-the-two-papers-relate).
+
+```
+.                       Paper 1: inference container and analysis
+  Dockerfile, requirements.txt, infer_logic.py, run_bratsmets.py
+  analysis/             code behind Paper 1's numbers
+  results/              Paper 1's per-case tables
+paper2/                 Paper 2: protocol, code, tables, figure scripts
+```
 
 ---
 
-## What this repository is
+# Paper 1 — Runtime-Aware Ensemble Optimization
+
+## What this part of the repository is
 
 The challenge requires each submission to run as a Docker container on a single
 GPU within an eight-hour budget for the 303-case test set. A conventional
@@ -178,6 +194,8 @@ persistent in-memory predictor gives a further 49.4%.
 
 ## Citation
 
+Paper 1:
+
 ```bibtex
 @inproceedings{elgaghous2026runtime,
   title     = {Runtime-Aware Ensemble Optimization for Brain Metastasis
@@ -189,9 +207,11 @@ persistent in-memory predictor gives a further 49.4%.
 }
 ```
 
+Paper 2: see [`paper2/README.md`](paper2/README.md#citation).
+
 ## License
 
-Apache 2.0. See `LICENSE`.
+Apache 2.0 for both papers' code and tables. See `LICENSE`.
 
 ## Acknowledgments
 

@@ -1,0 +1,5 @@
+case,region,match,note
+BraTS-MET-00024-000,-,0,"KeyError: ""missing count columns ['Num_TP', 'Num_FP', 'Num_FN']; have ['case', 'setting', 'region', 'lesionwise_dice', 'legacy_dice', 'zero_warning']"""
+BraTS-MET-01284-000,-,0,"KeyError: ""missing count columns ['Num_TP', 'Num_FP', 'Num_FN']; have ['case', 'setting', 'region', 'lesionwise_dice', 'legacy_dice', 'zero_warning']"""
+BraTS-MET-00188-000,-,0,"KeyError: ""missing count columns ['Num_TP', 'Num_FP', 'Num_FN']; have ['case', 'setting', 'region', 'lesionwise_dice', 'legacy_dice', 'zero_warning']"""
+BraTS-MET-00200-000,-,0,"KeyError: ""missing count columns ['Num_TP', 'Num_FP', 'Num_FN']; have ['case', 'setting', 'region', 'lesionwise_dice', 'legacy_dice', 'zero_warning']"""

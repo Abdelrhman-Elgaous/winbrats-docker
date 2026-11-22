@@ -1,0 +1,8 @@
+{
+  "n_cases": 1296,
+  "n_lesions": 9933,
+  "unweighted_voxel_share": 0.0010741175952487369,
+  "alpha": 0.5,
+  "V0": 27.0,
+  "w_max": 8.0
+}

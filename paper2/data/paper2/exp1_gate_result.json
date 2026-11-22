@@ -1,0 +1,35 @@
+{
+  "candidate_availability": {
+    "n_lesions": 5059,
+    "n_cases": 255,
+    "base": 0.7794030440798577,
+    "new": 0.8201225538644,
+    "diff": 0.0407195097845424,
+    "recovered": 252,
+    "regressed": 46,
+    "lo": 0.01921805019731955,
+    "hi": 0.06674505723979204,
+    "ci_excludes_zero": true,
+    "p": 1.453722630421393e-35
+  },
+  "small_lesion_sensitivity": {
+    "n_lesions": 1764,
+    "n_cases": 140,
+    "base": 0.4098639455782313,
+    "new": 0.5147392290249433,
+    "diff": 0.10487528344671201,
+    "recovered": 211,
+    "regressed": 26,
+    "lo": 0.05161255157539385,
+    "hi": 0.15130670854818362,
+    "ci_excludes_zero": true,
+    "p": 3.4125829664706067e-37
+  },
+  "fp_burden": {
+    "base": 1.36,
+    "new": 1.97,
+    "ratio": 1.4485294117647058,
+    "limit": 1.25
+  },
+  "verdict": "stop"
+}

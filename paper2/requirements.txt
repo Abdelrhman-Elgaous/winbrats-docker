@@ -1,0 +1,17 @@
+# Table-level analyses and data figures (CPU only)
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+
+# Re-running from the images (Phase B/C scoring, qualitative figures)
+nibabel>=5.0
+connected-components-3d
+medpy
+SimpleITK
+
+# The size-aware training contrast (exp1/) also needs torch and nnunetv2.
+# The trainer's three hooks are version-sensitive: run `python exp1/exp1.py
+# inspect-pipeline` and `python exp1/exp1.py selftest` against the installed
+# nnunetv2 before training (see exp1/README.md). Paper 1's container pins
+# torch 2.1.2 and nnunetv2 2.5.1 (../Dockerfile, ../requirements.txt).

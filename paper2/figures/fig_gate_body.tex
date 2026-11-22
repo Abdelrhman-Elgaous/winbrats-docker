@@ -1,0 +1,107 @@
+%% EXP-1 decision gate. SINGLE SOURCE: used by the manuscript and the preview.
+\begin{tikzpicture}[x=1mm,y=1mm,ink,line width=0.3pt,
+  font=\rmfamily\fontsize{7.0}{8.4}\selectfont,
+  nm/.style   = {anchor=west,font=\rmfamily\fontsize{7.0}{8.2}\selectfont},
+  ltr/.style  = {anchor=west,font=\rmfamily\fontsize{7.6}{8.4}\bfseries\selectfont,
+                 accentblue},
+  arm/.style  = {anchor=west,font=\rmfamily\fontsize{6.8}{8}\selectfont,rulegrey},
+  eff/.style  = {anchor=east,font=\rmfamily\fontsize{7.2}{8.4}\bfseries\selectfont},
+  tk/.style   = {anchor=north,font=\rmfamily\fontsize{5.8}{6.8}\selectfont,rulegrey},
+  axcap/.style= {anchor=north,font=\rmfamily\fontsize{6.2}{7.4}\selectfont,rulegrey},
+  hd/.style   = {anchor=west,font=\rmfamily\fontsize{6.2}{7.4}\selectfont,rulegrey}]
+
+\useasboundingbox (0,0) rectangle (139,54);
+
+%% ---- column geometry, shared by every row --------------------------------
+\def\CL{1}      % criterion letter
+\def\CN{6}      % criterion name
+\def\CA{39}     % the two arms
+\def\GX{61}     % gauge origin
+\def\GW{44}     % gauge width
+\def\CE{123}    % change, right-aligned
+\def\CV{125}    % verdict badge
+
+\newcommand{\pp}[1]{{\GX+(#1)*\GW/16}}        % percentage points, 0--16
+\newcommand{\rt}[1]{{\GX+((#1)-1.0)*\GW/0.6}} % ratio, 1.0--1.6
+
+%% ---- column headings ------------------------------------------------------
+\node[hd] at (\CL,51.8) {Pre-registered criterion};
+\node[hd] at (\CA,51.8) {baseline $\rightarrow$ size-aware};
+\node[hd] at (\CE-15,51.8) {change};
+\node[hd] at (\CV,51.8) {verdict};
+\draw[rulegrey,line width=0.4pt] (0,49.4) -- (139,49.4);
+
+%% ===========================================================================
+%%  A and B -- percentage points, on one shared scale
+%% ===========================================================================
+\foreach \v in {4,8,12,16}{
+  \draw[rulegrey!35,line width=0.2pt] (\pp{\v},31.0) -- (\pp{\v},46.8);}
+\draw[ink,line width=0.5pt] (\pp{0},31.0) -- (\pp{0},46.8);   % zero threshold
+
+%% --- row A -----------------------------------------------------------------
+\node[ltr] at (\CL,44.0) {A};
+\node[nm]  at (\CN,44.0) {candidate availability};
+\node[arm] at (\CA,44.0) {77.9\% $\rightarrow$ 82.0\%};
+\draw[accentblue,line width=0.5pt] (\pp{1.92},44.0) -- (\pp{6.67},44.0);
+\draw[accentblue,line width=0.5pt] (\pp{1.92},42.9) -- (\pp{1.92},45.1);
+\draw[accentblue,line width=0.5pt] (\pp{6.67},42.9) -- (\pp{6.67},45.1);
+\fill[accentblue] (\pp{4.07},44.0) circle (0.9);
+\node[eff,accentblue] at (\CE,44.0) {$+$4.07\,pp};
+\fill[palelue] (\CV,41.9) rectangle (\CV+13,46.1);
+\node[font=\rmfamily\fontsize{6.8}{8}\bfseries\selectfont,accentblue]
+  at (\CV+6.5,44.0) {PASS};
+
+%% --- row B -----------------------------------------------------------------
+\node[ltr] at (\CL,36.0) {B};
+\node[nm]  at (\CN,36.0) {sensitivity, $\le$\,\SI{27}{\cubic\milli\metre}};
+\node[arm] at (\CA,36.0) {41.0\% $\rightarrow$ 51.5\%};
+\draw[accentblue,line width=0.5pt] (\pp{5.16},36.0) -- (\pp{15.13},36.0);
+\draw[accentblue,line width=0.5pt] (\pp{5.16},34.9) -- (\pp{5.16},37.1);
+\draw[accentblue,line width=0.5pt] (\pp{15.13},34.9) -- (\pp{15.13},37.1);
+\fill[accentblue] (\pp{10.49},36.0) circle (0.9);
+\node[eff,accentblue] at (\CE,36.0) {$+$10.49\,pp};
+\fill[palelue] (\CV,33.9) rectangle (\CV+13,38.1);
+\node[font=\rmfamily\fontsize{6.8}{8}\bfseries\selectfont,accentblue]
+  at (\CV+6.5,36.0) {PASS};
+
+%% --- the shared axis -------------------------------------------------------
+\draw[rulegrey,line width=0.3pt] (\pp{0},31.0) -- (\pp{16},31.0);
+\foreach \v in {0,4,8,12,16}{
+  \draw[rulegrey,line width=0.3pt] (\pp{\v},31.0) -- (\pp{\v},30.1);
+  \node[tk] at (\pp{\v},29.9) {\v};}
+\node[axcap] at (\pp{8},26.2)
+  {percentage points; each criterion requires an interval excluding zero};
+
+%% ===========================================================================
+%%  C -- a ratio, on its own scale
+%% ===========================================================================
+\draw[rulegrey!60,line width=0.3pt] (0,22.0) -- (139,22.0);
+
+\foreach \v in {1.2,1.4,1.6}{
+  \draw[rulegrey!35,line width=0.2pt] (\rt{\v},8.4) -- (\rt{\v},16.8);}
+\draw[ink,line width=0.5pt] (\rt{1.0},8.4) -- (\rt{1.0},16.8);
+
+%% the overshoot past the pre-set bound
+\fill[paleochre] (\rt{1.25},12.4) rectangle (\rt{1.4448},15.6);
+\draw[ochre,dashed,dash pattern=on 0.8mm off 0.6mm,line width=0.55pt]
+  (\rt{1.25},8.4) -- (\rt{1.25},17.4);
+\node[anchor=south,font=\rmfamily\fontsize{6.2}{7.4}\selectfont,ochre]
+  at (\rt{1.25},17.2) {bound 1.25};
+
+\node[ltr,ochre] at (\CL,14.0) {C};
+\node[nm]  at (\CN,14.0) {false positives per case};
+\node[arm] at (\CA,14.0) {1.36 $\rightarrow$ 1.97};
+\fill[ochre] (\rt{1.4448},14.0) circle (0.9);
+\node[eff,ochre] at (\CE,14.0) {1.44$\times$};
+\fill[paleochre] (\CV,11.9) rectangle (\CV+13,16.1);
+\node[font=\rmfamily\fontsize{6.8}{8}\bfseries\selectfont,ochre]
+  at (\CV+6.5,14.0) {FAIL};
+
+\draw[rulegrey,line width=0.3pt] (\rt{1.0},8.4) -- (\rt{1.6},8.4);
+\foreach \v/\t in {1.0/1.0,1.2/1.2,1.4/1.4,1.6/1.6}{
+  \draw[rulegrey,line width=0.3pt] (\rt{\v},8.4) -- (\rt{\v},7.5);
+  \node[tk] at (\rt{\v},7.3) {\t};}
+\node[axcap] at (\rt{1.3},3.6)
+  {ratio to baseline; the bound was fixed before the arm was run};
+
+\end{tikzpicture}

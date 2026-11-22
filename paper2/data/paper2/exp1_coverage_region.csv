@@ -1,0 +1,30 @@
+{
+  "WT": {
+    "n_small": 4398,
+    "n_covered": 4380,
+    "coverage": 0.9959072305593452,
+    "median_weight": 1.8605179322489795,
+    "median_merged_volume_of_uncovered": 27.0
+  },
+  "TC": {
+    "n_small": 4831,
+    "n_covered": 4814,
+    "coverage": 0.996481059821983,
+    "median_weight": 1.7454038339155906,
+    "median_merged_volume_of_uncovered": 27.0
+  },
+  "ET": {
+    "n_small": 6051,
+    "n_covered": 6035,
+    "coverage": 0.9973558089571971,
+    "median_weight": 2.0154187467115423,
+    "median_merged_volume_of_uncovered": 27.0
+  },
+  "RC": {
+    "n_small": 176,
+    "n_covered": 176,
+    "coverage": 1.0,
+    "median_weight": 8.0,
+    "median_merged_volume_of_uncovered": null
+  }
+}
